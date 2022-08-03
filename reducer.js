@@ -1,19 +1,12 @@
+import local from './utils/local.js';
 const init = {
-  todos: [
-    {
-      title: 'Learn Javascript',
-      completed: false,
-    },
-    {
-      title: 'Learn NodeJS',
-      completed: true,
-    },
-  ],
+  todos: local.get(),
 };
 
 const actions = {
   add({ todos }, title) {
     todos.push({ title, completed: false });
+    local.set(todos);
   },
 };
 
